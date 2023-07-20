@@ -1,8 +1,8 @@
-### HQ ICON
+### App_icon
 
-网址：https://icon.yukonga.top
+网址：待补充
 
-完整例子：https://icon.yukonga.top?name=星穹铁道&country=cn&entity=software&limit=10&cut=1
+完整例子：待补充
 
 | url 传参 |             对应作用             |  默认值  |
 | :------: | :------------------------------: | :------: |
@@ -16,4 +16,4 @@
 
 API 来源：[Search API](https://performance-partners.apple.com/search-api)
 
-原始仓库：[Github](https://github.com/f48vj/hq-icon)
+原始仓库：[Github](https://github.com/YuKongA/HQ-ICON)
