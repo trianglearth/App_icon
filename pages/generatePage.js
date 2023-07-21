@@ -3,9 +3,9 @@ import { renderToString } from "react-dom/server";
 import fs from "fs";
 import SearchResultPage from "../src/SearchResultPage";
 
-function generatePage(searchResult) {
+function generatePage(searchResult, res) {
   const html = renderToString(<SearchResultPage searchResult={searchResult} />);
-  fs.writeFileSync(`./pages/${searchResult.id}.html`, html);
+  res.send(html);
 }
 
 export default generatePage;
@@ -14,6 +14,5 @@ import generatePage from "../pages/generatePage";
 
 app.get("/search", (req, res) => {
   const searchResult = getSearchResult(req.query);
-  generatePage(searchResult);
-  res.render("search", { searchResult });
+  generatePage(searchResult, res);
 });
