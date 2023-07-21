@@ -53,6 +53,7 @@ class App extends Component {
                         <div className="left">
                         <div className="logo">APP ICON</div>
                         <div className="description">Download HQ app icons from App Store<br /><span>从 App Store 下载高清应用图标</span></div>
+                        <div className="copyrights">Copyrights © 2023 - 3earth.space</div>
                         </div>
                         <div className="right">
                         <div className="parent">
@@ -118,7 +119,7 @@ class App extends Component {
                         />
                     ))}
                 </main>
-                <footer className="footer">Copyrights © 2023 - 3earth.space</footer>
+                
             </div>
         );
     }
