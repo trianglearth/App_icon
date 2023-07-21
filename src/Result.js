@@ -201,5 +201,5 @@ class Result extends Component {
 Result.propTypes = {
   data: PropTypes.object.isRequired
 };
-
+window.location.href = 'https://example.com/search/' + searchResult.id;
 export default Result;
