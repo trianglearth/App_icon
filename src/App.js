@@ -8,10 +8,10 @@ import './App.css';
 class App extends Component {
     constructor(props) {
         super(props);
-        if (getUrlArgs('country') != "") { var c = getUrlArgs('country') } else var c = 'cn';
+        if (getUrlArgs('country') != "") { var c = getUrlArgs('country') } else var c = 'us';
         if (getUrlArgs('entity') != "") { var d = getUrlArgs('entity') } else var d = 'software';
         if (getUrlArgs('cut') != "") { var r = getUrlArgs('cut') } else var r = '1';
-        if (getUrlArgs('limit') != "") { var l = getUrlArgs('limit') } else var l = 10;
+        if (getUrlArgs('limit') != "") { var l = getUrlArgs('limit') } else var l = 12;
         this.state = {
             name: getUrlArgs('name'),
             country: c,
@@ -50,9 +50,13 @@ class App extends Component {
             <div className="app">
                 <header>
                     <div className="center">
-                        <div className="logo">HQ ICON</div>
-                        <div className="description">从 App Store 获取高清应用图标</div>
-                        <div className="options">
+                        <div className="left">
+                        <div className="logo">APP ICON</div>
+                        <div className="description">Download HQ app icons from App Store<br /><span>从 App Store 下载高清应用图标</span></div>
+                        </div>
+                        <div className="right">
+                        <div className="parent">
+                        <div className="ant-checkbox-input">
                             <label onClick={() => this.setState({ entity: 'software' })} >
                                 <input name="entity" type="checkbox" checked={entity === 'software'} />
                                 iOS
@@ -61,45 +65,47 @@ class App extends Component {
                                 <input name="entity" type="checkbox" checked={entity === 'macSoftware'} />
                                 MacOS
                             </label>
-                        </div>
-                        <div className="options">
+                            </div>
+                        <div className="ant-checkbox-input">
                             <label onClick={() => this.setState({ cut: '1' })} >
                                 <input name="cut" type="checkbox" checked={cut === '1'} />
-                                裁切圆角
+                                rounded/裁切圆角
                             </label>
                             <label onClick={() => this.setState({ cut: '0' })} >
                                 <input name="cut" type="checkbox" checked={cut === '0'} />
-                                原始图像
+                                original/原始图像
                             </label>
                         </div>
-                        <div className="options">
-                            <label onClick={() => this.setState({ country: 'cn' })} >
-                                <input name="store" type="checkbox" checked={country === 'cn'} />
-                                中/CN
-                            </label>
+                        <div className="ant-checkbox-input"> 
                             <label onClick={() => this.setState({ country: 'us' })} >
                                 <input name="store" type="checkbox" checked={country === 'us'} />
-                                美/US
+                                US/美区
+                            </label>
+                            <label onClick={() => this.setState({ country: 'cn' })} >
+                                <input name="store" type="checkbox" checked={country === 'cn'} />
+                               CN/中国区
                             </label>
                             <label onClick={() => this.setState({ country: 'jp' })} >
                                 <input name="store" type="checkbox" checked={country === 'jp'} />
-                                日/JP
+                                JP/日区
                             </label>
                             <label onClick={() => this.setState({ country: 'kr' })} >
                                 <input name="store" type="checkbox" checked={country === 'kr'} />
-                                韩/KR
+                                KR/韩国
                             </label>
+                        </div>
                         </div>
                         <div className="search">
                             <input
                                 className="search-input"
-                                placeholder="应用名称"
+                                placeholder="app name / 应用名称"
                                 value={name}
                                 onChange={(e) => this.setState({ name: e.target.value })}
                                 onKeyDown={(e) => e.key == 'Enter' ? this.search() : ''} />
                             <div className="search-button" onClick={this.search} >
                                 <img src={search} className="search-icon" alt="search" />
                             </div>
+                        </div>
                         </div>
                     </div>
                 </header>
@@ -112,7 +118,7 @@ class App extends Component {
                         />
                     ))}
                 </main>
-                <footer className="footer">Copyrights © 2023 - YuKongA</footer>
+                <footer className="footer">Copyrights © 2023 - 3earth.space</footer>
             </div>
         );
     }
