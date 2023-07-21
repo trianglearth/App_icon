@@ -1,23 +1,75 @@
 .result {
   width: 256px;
   margin: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .icon {
   height: 256px;
   width: 256px;
+  margin-bottom: 10px;
 }
 
 .platform {
   font-size: 0.7rem;
+  margin-bottom: 4px;
 }
 
 .trackName {
   font-size: 1rem;
+  margin-bottom: 2px;
 }
 
 .artistName {
   font-size: 0.8rem;
+}
+
+.color-palette {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.color {
+  /* width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  border-radius: 50%;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  display: inline-block; */
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  transition: all 0.2s ease-in-out;
+  border-radius: 50%;
+}
+
+.color:hover {
+  transform: scale(5);
+  z-index: 1;
+}
+
+.color:hover .color-value {
+  /* 定义颜色值的样式 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%， -50%);
+  z-index: 1;
+  padding: 4px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 1;
+  /* white-space: nowrap; */
 }
 
 a:link {
