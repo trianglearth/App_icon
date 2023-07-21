@@ -201,5 +201,21 @@ class Result extends Component {
 Result.propTypes = {
   data: PropTypes.object.isRequired
 };
-window.location.href = 'https://example.com/search/' + searchResult.id;
+import { useHistory } from 'react-router-dom';
+
+function SearchResultPage({ searchResult }) {
+  const history = useHistory();
+
+  function handleClick() {
+    history.push('/search/' + searchResult.id);
+  }
+
+  return (
+    <div>
+      <h1>{searchResult.title}</h1>
+      <p>{searchResult.description}</p>
+      <button onClick={handleClick}>View Details</button>
+    </div>
+  );
+}
 export default Result;
