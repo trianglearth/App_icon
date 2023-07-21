@@ -10,10 +10,11 @@ header {
 }
 
 header {
-  background-image: linear-gradient(135deg, #9cc8f8 0%, #fa8ce4 100%);
-  margin: 40px;
-  box-shadow: 0 0 10px #888888;
-  border-radius: 20px;
+  /* background-image: linear-gradient(135deg, #9cc8f8 0%, #fa8ce4 100%); */
+  background-color: rgba(255, 255, 255, 0.897);
+  margin: 0px;
+  box-shadow: 0 0 0px #888888;
+  border-radius: 0px;
   justify-content: center;
 }
 
@@ -53,34 +54,48 @@ input::-moz-placeholder {
 }
 
 .center {
-  flex: 1;
-  max-width: 720px;
+  /* flex: 1; */
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 10 auto;
 }
 
 .logo {
-  color: white;
-  font-size: 3.8rem;
-  font-weight: 700;
-  margin-top: 15px;
+  color: black;
+  font-size: 40px;
+  font-weight: bold;
+  /* margin-top: 15px; */
 }
 
 .description {
-  color: white;
-  font-size: 20px;
-  margin-bottom: 10px;
+  color: black;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+.description span {
+  display: block;
 }
 
-.center {
-  flex: 1;
-  max-width: 720px;
-}
-
-.options {
-  color: white;
+.ant-checkbox-input {
+  color: black;
   margin: 4px 0;
 }
 
-.options label {
+.ant-checkbox-input label {
   margin: 0 8px
 }
 
@@ -89,13 +104,25 @@ label {
   cursor: pointer;
 }
 
-.options input[type=checkbox] {
+.ant-checkbox-input input[type=checkbox] {
   width: 15px;
   height: 13.6px;
   margin-right: 5px;
 }
 
-.options input[type=checkbox]::before {
+.parent {
+  /* display: flex;
+  flex-wrap: wrap; */
+  margin-top: 20px;
+}
+
+.ant-checkbox-input {
+  width: 100%;
+  max-width: 500px;
+  text-align: left;
+}
+
+/* .options input[type=checkbox]::before {
   content: '';
   position: absolute;
   width: 15px;
@@ -104,18 +131,19 @@ label {
   font-size: 15px;
   background-color: white;
   border-radius: 2.8px;
+  border: 1px solid black;
 }
 
 .options input[type=checkbox]:checked::before {
   position: absolute;
-  background-color: #00ff84;
+  background-color: #22b5ff;
   width: 13px;
   height: 13px;
   text-align: center;
   font-size: 15px;
   border: solid 1px black;
   border-radius: 2.8px;
-}
+} */
 
 @supports(-webkit-touch-callout: none) {
   .options input[type=checkbox] {
@@ -135,16 +163,18 @@ label {
 }
 
 .search {
-  height: 45px;
+  /* height: 45px;
   display: flex;
   margin-left: 10%;
   margin-right: 10%;
   margin-bottom: 35px;
+  margin-top: 20px; */
   margin-top: 20px;
+  display: flex;
 }
 
 .search-input {
-  height: 45px;
+  /* height: 45px;
   width: 20px;
   flex: 1;
   padding: 0 10px;
@@ -154,11 +184,25 @@ label {
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 0px;
   font-size: 15px;
+  outline: none; */
+  padding: 0 10px;
+  border: 0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 0px;
+  border: 1px;
+  font-size: 15px;
   outline: none;
+  height: 45px;
+  width: 80%;
+  margin-bottom: 20px;
+  display: flex;
+  background-color: #efefef;
 }
 
 .search-button {
-  height: 45px;
+  /* height: 45px;
   width: 48px;
   display: flex;
   border: 0;
@@ -166,7 +210,18 @@ label {
   border-bottom-right-radius: 8px;
   background: #22b5ff;
   align-items: center;
+  transition: background-color 0.35s; */
+  height: 45px;
+  width: 60px;
+  display: flex;
+  border: 0;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  background: #22b5ff;
+  align-items: center;
+  justify-content: center;
   transition: background-color 0.35s;
+  
 }
 
 .search-button:hover {
@@ -213,5 +268,24 @@ label {
 
   .options label {
     margin: 0 4px;
+  }
+}
+
+@media (max-width: 768px) {
+  .center {
+    flex-direction: column;
+    align-items: center;
+  }
+  .left {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  .search {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
   }
 }
