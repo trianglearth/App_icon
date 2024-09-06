@@ -3,7 +3,27 @@ import Result from './Result';
 import { searchApp } from './searchApp';
 import { getUrlArgs, changeUrlArgs } from './Url.js';
 import search from './search.svg';
+import wechat from './wechat.png';
+import qrCode from './qr-code.jpg'; // 假设我们有这个二维码图片
 import './App.css';
+
+// 新增 WeChatModal 组件
+const WeChatModal = ({ isOpen, onClose }) => {
+    if (!isOpen) return null;
+  
+    return (
+      <div className="modal-overlay" onClick={onClose}>
+        <div className="modal-content" onClick={e => e.stopPropagation()}>
+          <button className="close-button" onClick={onClose}>&times;</button>
+          <h2>微信扫码加入用户群</h2>
+          <img src={qrCode} alt="WeChat QR Code" className="qr-code" />
+          <p className="group-name">群聊：APP_ICON用户沟通群</p>
+          <p className="validity">该二维码7天内（9月13日前）有效，重新进入将更新</p>
+          <p className="note">🙋‍♂大家使用时有啥想法或意见，我们可以在群里交流交流，提提反馈~</p>
+        </div>
+      </div>
+    );
+  };
 
 class App extends Component {
     constructor(props) {
@@ -19,6 +39,7 @@ class App extends Component {
             limit: l,
             cut: r,
             results: [],
+            showModal: false, // 新增状态来控制弹窗显示
         };
         this.search = this.search.bind(this);
         if (getUrlArgs('name') != null) this.search();
@@ -37,8 +58,13 @@ class App extends Component {
         }
     }
 
+    // 新增方法来控制弹窗的显示和隐藏
+    toggleModal = () => {
+        this.setState(prevState => ({ showModal: !prevState.showModal }));
+    }
+
     render() {
-        const { name, country, entity, cut, limit, results } = this.state;
+        const { name, country, entity, cut, limit, results, showModal } = this.state;
         if (name != '') {
             history.replaceState(null, null, changeUrlArgs('name', name));
             history.replaceState(null, null, changeUrlArgs('country', country));
@@ -54,6 +80,10 @@ class App extends Component {
                         <div className="logo">APP ICON</div>
                         <div className="description">Download HQ app icons from App Store<br /><span>从 App Store 下载高清应用图标</span></div>
                         <div className="copyrights">Copyrights © 2023 - 3earth.space</div>
+                            <div className="wechat" onClick={this.toggleModal}>
+                                <img src={wechat} style={{width:'24px'}} />
+                                <a>用户群</a>
+                            </div>
                         </div>
                         <div className="right">
                         <div className="parent">
@@ -118,8 +148,10 @@ class App extends Component {
                             cut={cut}
                         />
                     ))}
+                    
+                    
                 </main>
-                
+                <WeChatModal isOpen={showModal} onClose={this.toggleModal} />
             </div>
         );
     }

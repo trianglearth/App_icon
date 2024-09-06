@@ -90,6 +90,31 @@ input::-moz-placeholder {
   display: block;
 }
 
+.wechat {
+  font-size: medium;
+  display: flex;
+  flex-direction: grow;
+  justify-content: center;
+  cursor:pointer;
+  margin-top: 12px;
+
+}
+
+.wechat a {
+  padding-left: 4px;
+}
+
+.wechat a:hover {
+  color: #22b5ff;
+}
+
+.modal {
+  border: 1px;
+  border-color: #efefef;
+  box-shadow: #22b5ff;
+
+}
+
 .copyrights {
   color: rgb(109, 109, 109);
   font-size: 14px;
@@ -293,4 +318,59 @@ label {
     margin-bottom: 10px;
     margin-top: 10px;
   }
+}
+
+/* * 弹窗样式 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.qr-code {
+  max-width: 250px;
+  margin: 20px 0;
+}
+
+.group-name {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.validity {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.note {
+  font-size: 0.9em;
+  color: #333;
 }
